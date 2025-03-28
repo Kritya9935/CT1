@@ -262,9 +262,9 @@ app.get('/', (req, res) => {
 });
 
 // Catch-all for React Router
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
+});
 
 app.listen(3001, () => {
   console.log("server is running");
