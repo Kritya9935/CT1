@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./server
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/cycletime
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./cycle-time-login
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
