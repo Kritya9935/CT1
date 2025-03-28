@@ -257,14 +257,20 @@ app.get('/export-home-csv', async (req, res) => {
 // app.use(express.static(path.join(__dirname, '../cycle-time-login/dist')));
 
 // Root route to serve frontend
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
+// });
 
 // Catch-all for React Router
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
+// });
+
+app.use(express.static(path.join(__dirname, 'dist')));
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
+
 
 app.listen(3001, () => {
   console.log("server is running");
