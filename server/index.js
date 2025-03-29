@@ -13,6 +13,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(cors({
+  origin: '*', // Sab devices allow
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 // mongoose.connect("mongodb://127.0.0.1:27017/employee");
 
 // mongoose.connect("mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/cycletime?retryWrites=true&w=majority&appName=CycleCluster",{
