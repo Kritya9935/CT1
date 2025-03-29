@@ -15,7 +15,12 @@ app.use(cors());
 
 // mongoose.connect("mongodb://127.0.0.1:27017/employee");
 
-mongoose.connect("mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/cycletime?retryWrites=true&w=majority&appName=CycleCluster",{
+// mongoose.connect("mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/cycletime?retryWrites=true&w=majority&appName=CycleCluster",{
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/cycletime?retryWrites=true&w=majority&appName=CycleCluster", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -246,9 +251,13 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(3001, () => {
-  console.log("server is running");
-});
+// app.listen(3001, () => {
+//   console.log("server is running");
+// });
 
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+  console.log(`server is running on port ${port}`);
+});
 
 
