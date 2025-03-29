@@ -262,7 +262,13 @@ const AdminLogin = () => {
       console.log('Sending:', { userId, password });
       console.log('Fetching URL:', `${import.meta.env.VITE_API_URL}/login`);
   
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, { // Dynamic URL
+      // const response = await fetch(`${import.meta.env.VITE_API_URL}/login`, { // Dynamic URL
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ userId, password })
+      // });
+
+      const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, password })
