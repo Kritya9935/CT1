@@ -15,11 +15,7 @@ app.use(cors());
 
 // mongoose.connect("mongodb://127.0.0.1:27017/employee");
 
-// mongoose.connect("mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/?retryWrites=true&w=majority&appName=CycleCluster",{
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/cycletime?retryWrites=true&w=majority&appName=CycleCluster", {
+mongoose.connect("mongodb+srv://Kashish:Cycle@cyclecluster.gx0yx.mongodb.net/cycletime?retryWrites=true&w=majority&appName=CycleCluster",{
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -31,28 +27,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://Kashish:Cycle@cyclecl
 function generatePassword(length = 8) {
   return crypto.randomBytes(length).toString('hex').slice(0,length);
 }
-
-
-// Root route with redirect to /home2
-// app.get('/', (req, res) => {
-//   res.redirect('/home2'); // Redirect to /home2
-// });
-
-// const path = require('path');
-
-// // After app.use(cors())
-// app.use(express.static(path.join(__dirname, '../cycle-time-login/dist')));
-
-// // Root route to serve frontend
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
-// });
-
-// // Catch-all for React Router
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../cycle-time-login/dist', 'index.html'));
-// });
-
 
 //Admin creates user
 app.post('/admin/create-user', async (req,res) => {
